@@ -39,3 +39,17 @@ week7_tbl %>%
   facet_wrap(~ gender) +
   labs(x = "Score on Q1", y = "Score on Q2")
 
+
+week7_tbl %>% 
+  ggplot(aes(x = gender, y = timeSpent)) +
+  geom_boxplot() +
+  labs(x = "Gender", y = "Time Elapsed (mins)")
+
+
+week7_tbl %>% 
+  ggplot(aes(x = q5, y = q7, group = condition, color = condition)) +
+  geom_jitter() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Score on Q5", y = "Score on Q7", color = "Experimental Condition") +
+  theme(legend.position = "bottom",
+        legend.background = element_rect(fill = grey(0.875)))
